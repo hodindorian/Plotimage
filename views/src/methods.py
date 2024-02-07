@@ -2,16 +2,14 @@ from PIL import Image
 from PIL import ImageSequence
 import numpy as np
 from PIL import Image
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename, asksaveasfilename
+import tkinter as tk
+from tkinter import filedialog as fd
 
 
 def import_img():
-    Tk().withdraw()
 
-    chemin_image = askopenfilename(
+    chemin_image = fd.askopenfilename(
         title="Sélectionner une image",
-        filetypes=[("Fichiers image", "*.png;*.jpg;*.jpeg;*.gif;*.bmp")]
     )
 
     if not chemin_image:
@@ -24,11 +22,12 @@ def import_img():
 
     return image
 
+
 def black_and_white_convert(img):
     img = img.convert('L')
     return img.point(lambda p: p > 128 and 255)
 
-def grey(img):
+def grey_convert(img):
     img = img.convert("L")
     return img
 
