@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black and White Conversion</title>
+</head>
+<body>
+    <h1>Image en noir et blanc</h1>
+
+    {% if img_bw %}
+        <!-- Afficher l'image modifiée -->
+        <img src="data:image/png;base64,{{ img_bw }}">
+    {% else %}
+        <p>Aucune image disponible.</p>
+    {% endif %}
+</body>
+</html>
