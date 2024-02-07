@@ -1,5 +1,3 @@
-<!-- tmp.html -->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,6 +16,9 @@
             background-position: center;
             background-size: cover;
         }
+        .bordered-img {
+            border: 3px solid white;
+        }
     </style>
 </head>
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
@@ -29,7 +30,7 @@
       <hr class="w3-border-grey" style="margin:auto;width:40%">
       <p class="w3-large w3-center">Noir et Blanc :</p>
         {% if img_str %}
-            <img src='{% static "pictures/tmp.jpg" %}''>
+          <img src='{% static "pictures/tmp.jpg" %}' class="bordered-img" alt="Image avec bordure noire">
         {% else %}
             <p>Aucune image disponible.</p>
         {% endif %}

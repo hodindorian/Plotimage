@@ -32,7 +32,7 @@ def grey_convert(img):
     return img
 
 def resizePicture(img,width,height):
-    img.thumbnail((width,height))
+    img = img.resize((width,height))
     return img
 
 def alignVertically(img1,img2):
@@ -41,7 +41,7 @@ def alignVertically(img1,img2):
 
     imgFinal1 = resizePicture(img1,max(width1,width2),max(height1,height2))
     finalWidth,finalHeight = imgFinal1.size
-    imgFinal2 = resizePicture(img1,finalWidth,finalHeight)
+    imgFinal2 = resizePicture(img2,finalWidth,finalHeight)
 
     imageVertical = Image.new("RGBA",(finalWidth*2,finalHeight),(0, 0, 0, 0))
     imageVertical.paste(imgFinal1)

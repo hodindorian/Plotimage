@@ -22,7 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homepage_render),
     path('black_and_white/', black_and_white, name='black_and_white'),
-    path('grey/', grey, name='grey')
+    path('grey/', grey, name='grey'),
+    path('resizing_first/', resizing_first, name='resizing_first'),
+    path('resizing/', resizing, name='resizing'),
+    path('align_vertical', alignVertical, name='align_vertical'),
+    path('align_horizontal', alignHorizontal, name='align_horizontal'),
+    path('fusionning', fusionning, name='fusionning')
+
+
 
 ]
 
