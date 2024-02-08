@@ -32,7 +32,7 @@ def grey_convert(img):
     return img
 
 def resizePicture(img,width,height):
-    img = img.resize((width,height))
+    img = img.resize((width,height),Image.Resampling.LANCZOS)
     return img
 
 def alignVertically(img1,img2):
@@ -91,8 +91,8 @@ def mixColor(img1,img2,mix=0.5):
 def gifCreator(listeImage):
     width, height = listeImage[0].size
 
-    for image in listeImage[1:]:
-        img = resizePicture(image,width,height)
-        img = img.thumbnail((width, height))
+    for i in range(len(listeImage[1:])):
+        listeImage[i+1] = listeImage[i+1].convert('RGB')
+        listeImage[i+1] = resizePicture(listeImage[i+1],width,height)
 
-    listeImage[0].save("animation.gif", save_all=True, append_images=listeImage[1:], loop=0, duration=5000)
+    listeImage[0].save("./views/templates/static/pictures/generated/tmp.gif", save_all=True, append_images=listeImage[1:], loop=0, duration=3000)

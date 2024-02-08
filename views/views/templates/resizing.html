@@ -5,7 +5,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Black and White Page</title>
+      <title>Resizing</title>
       {% load static %}
       <style>
           body,h1 {font-family: "Raleway", sans-serif}
@@ -16,9 +16,13 @@
               background-position: center;
               background-size: cover;
           }
-          .bordered-img {
+          .center {
             border: 3px solid white;
-        }
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+          }
       </style>
   </head>
   <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
@@ -30,7 +34,7 @@
         <hr class="w3-border-grey" style="margin:auto;width:40%">
         <p class="w3-large w3-center">Redimensionnement :</p>
           {% if img_str %}
-            <img src='{% static "pictures/tmp.jpg" %}' class="bordered-img" alt="Image avec bordure noire">
+            <img src='{% static "pictures/generated/tmp.jpg" %}' class="center" alt="Image avec bordure noire">
           {% else %}
               <p>Aucune image disponible.</p>
           {% endif %}

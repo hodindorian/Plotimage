@@ -15,7 +15,7 @@ def black_and_white(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
+        img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "black_and_white.html", context)
     else:
         page = render(request,"homepage.html")
@@ -30,7 +30,7 @@ def grey(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
+        img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "grey.html", context)
     else:
         page = render(request,"homepage.html")
@@ -50,7 +50,7 @@ def resizing(request):
                 'img_str': img_bw,
             }
             img_bw = img_bw.convert('RGB')
-            img_bw.save("./views/templates/static/pictures/tmp.jpg")
+            img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
             page = render(request, "resizing.html", context)
         else:
             page = render(request,"homepage.html")
@@ -73,7 +73,7 @@ def alignVertical(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
+        img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "align_vertical.html", context)
     else:
         page = render(request,"homepage.html")
@@ -88,7 +88,7 @@ def alignHorizontal(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
+        img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "align_horizontal.html", context)
     else:
         page = render(request,"homepage.html")
@@ -103,23 +103,30 @@ def fusionning(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
+        img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "fusionning.html", context)
     else:
         page = render(request,"homepage.html")
     return page
 
 def animation(request):
-    img1 = import_img()
-    img2 = import_img()
-    if(img1!=None and img2!=None):
-        img_bw = mixColor(img1,img2)
-        context = {
-            'img_str': img_bw,
-        }
-        img_bw = img_bw.convert('RGB')
-        img_bw.save("./views/templates/static/pictures/tmp.jpg")
-        page = render(request, "fusionning.html", context)
+    gif = []
+    error = "no"
+    if request.method == 'POST':
+        number = request.POST.get('number')
+    for i in range(0,int(number)):
+        img= import_img()
+        gif.append(img)
+        if(img==None):
+            error = "yes"
+
+    if(error!="yes"):
+        gifCreator(gif)
+        page = render(request, "animation.html")
     else:
         page = render(request,"homepage.html")
     return page
+
+
+def animation_first(request):
+    return render(request, "animation_first.html")

@@ -25,11 +25,10 @@ urlpatterns = [
     path('grey/', grey, name='grey'),
     path('resizing_first/', resizing_first, name='resizing_first'),
     path('resizing/', resizing, name='resizing'),
-    path('align_vertical', alignVertical, name='align_vertical'),
-    path('align_horizontal', alignHorizontal, name='align_horizontal'),
-    path('fusionning', fusionning, name='fusionning')
-
-
-
+    path('align_vertical/', alignVertical, name='align_vertical'),
+    path('align_horizontal/', alignHorizontal, name='align_horizontal'),
+    path('fusionning/', fusionning, name='fusionning'),
+    path('animation_first/',animation_first, name='animation_first'),
+    path('animation/',animation, name='animation'),
 ]
 
