@@ -1,8 +1,8 @@
-FROM python:3.6
+FROM python:3.8
 
 ENV PYTHONUNBUFFERED=1
 
-RUN apt install -y python3-tk && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y python3-tk && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 
