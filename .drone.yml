@@ -1,0 +1,20 @@
+  - name: docker_image
+    image: plugins/docker
+    settings:
+       dockerfile: views/Dockerfile
+       context: views/
+       registry: hub.codefirst.iut.uca.fr
+       repo: hub.codefirst.iut.uca.fr/dorian.hodin/plotimage
+       username:
+         from_secret: SECRET_REGISTRY_USERNAME
+       password:
+         from_secret: SECRET_REGISTRY_PASSWORD
+
+
+  - name: deploy-application
+    image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
+    environment:
+        IMAGENAME: hub.codefirst.iut.uca.fr/dorian.hodin/plotimage:latest
+        CONTAINERNAME: Plotimage
+        COMMAND: create
+        OVERWRITE: true
