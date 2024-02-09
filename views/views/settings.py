@@ -123,3 +123,5 @@ STATICFILES_DIRS = ["views/templates/static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+FORCE_SCRIPT_NAME = 'PyPloteam-Plotimage/'
