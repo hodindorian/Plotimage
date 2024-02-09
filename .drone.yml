@@ -28,3 +28,4 @@ steps:
         CONTAINERNAME: Plotimage
         COMMAND: create
         OVERWRITE: true
+    depends_on: [ docker_image]
