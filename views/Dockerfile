@@ -1,6 +1,10 @@
-FROM python:3.5
+FROM python:3.8
+
+ENV TZ=Europe/Paris
 
 ENV PYTHONUNBUFFERED=1
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get autoclean && apt-get update && apt-get clean && apt-get autoremove
 
