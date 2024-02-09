@@ -28,4 +28,5 @@ steps:
         CONTAINERNAME: Plotimage
         COMMAND: create
         OVERWRITE: true
+        ADMINS: dorianhodin,corentinrichard
     depends_on: [ docker_image]
