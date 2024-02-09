@@ -2,7 +2,9 @@ FROM python:3.8
 
 ENV PYTHONUNBUFFERED=1
 
-RUN apt update && apt install -y python3-tk && rm -rf /var/lib/apt/lists/*
+RUN apt-get autoclean && apt-get update && apt-get clean && apt-get autoremove
+
+RUN apt install -y python3-tk && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 
