@@ -31,7 +31,9 @@ Ce projet a pour but de gérer des images sur un site Internet. On a la possibil
 
 * #### Pour lancer le projet, il faut faire cette commande depuis la racine du répot :
 
-    ```python3 views/manage.py runserver```
+    ```cd views```
+
+    ```python3 manage.py runserver```
 
 * Il faut ensuite aller sur l'adresse suivante :
 
@@ -60,3 +62,5 @@ Ce projet a pour but de gérer des images sur un site Internet. On a la possibil
     * Nous avons aussi le fichier views.py, qui s'occupe d'appeler toutes les fonctions de methods.py et de traiter le resultat, pour ensuite envoyer ça aux fichiers HTML
     * Les fichiers HTML sont situés dans le dossier templates, et sont appelés par views.py. Il permettent différentes affichages en fonction du choix fait sur la page d'acceuil.
     * Dans ce dossier templates, nous avons un dossier static qui contient les différentes images utiles au projet, comme les images de fond ou bien les images générés, qui seront générés dans le dossier static/pictures/generated
+
+* Front inspiré de ce template : https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_coming_soon&stacked=h
