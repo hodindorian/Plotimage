@@ -9,7 +9,8 @@ def homepage_render(request):
 
 def black_and_white(request):
     img = import_img()
-    if(img!=None):
+
+    if img is not None and isinstance(img, Image.Image):
         img_bw = black_and_white_convert(img)
         context = {
             'img_str': img_bw,
@@ -24,7 +25,7 @@ def black_and_white(request):
 
 def grey(request):
     img = import_img()
-    if(img!=None):
+    if img is not None and isinstance(img, Image.Image):
         img_bw = grey_convert(img)
         context = {
             'img_str': img_bw,
@@ -43,7 +44,7 @@ def resizing(request):
         height = request.POST.get('height')
         width = int(width)
         height = int(height)
-        if(img!=None):
+        if img is not None and isinstance(img, Image.Image):
             print(width,height)
             img_bw = resizePicture(img,width,height)
             context = {
@@ -67,7 +68,7 @@ def resizing_first(request):
 def alignVertical(request):
     img1 = import_img()
     img2 = import_img()
-    if(img1!=None and img2!=None):
+    if img1!=None and img2!=None and isinstance(img1, Image.Image) and isinstance(img2, Image.Image):
         img_bw = alignVertically(img1,img2)
         context = {
             'img_str': img_bw,
@@ -82,7 +83,7 @@ def alignVertical(request):
 def alignHorizontal(request):
     img1 = import_img()
     img2 = import_img()
-    if(img1!=None and img2!=None):
+    if img1!=None and img2!=None and isinstance(img1, Image.Image) and isinstance(img2, Image.Image):
         img_bw = alignHorizontally(img1,img2)
         context = {
             'img_str': img_bw,
@@ -97,7 +98,7 @@ def alignHorizontal(request):
 def fusionning(request):
     img1 = import_img()
     img2 = import_img()
-    if(img1!=None and img2!=None):
+    if img1!=None and img2!=None and isinstance(img1, Image.Image) and isinstance(img2, Image.Image):
         img_bw = mixColor(img1,img2)
         context = {
             'img_str': img_bw,

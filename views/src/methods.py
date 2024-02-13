@@ -4,24 +4,38 @@ import numpy as np
 from PIL import Image
 import tkinter as tk
 from tkinter import filedialog as fd
+import os
 
 
 def import_img():
 
+    dossier_telechargement = os.path.expanduser("~/Downloads")
+
     chemin_image = fd.askopenfilename(
         title="Sélectionner une image",
+        initialdir=dossier_telechargement,
     )
+
 
     if not chemin_image:
         print("Opération annulée.")
         return None
 
-    # Ouvrir l'image avec PIL
-    image = Image.open(chemin_image)
-    print("Image ouverte avec succès.")
+    extensions_image = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff']
+
+    if not any(chemin_image.lower().endswith(ext) for ext in extensions_image):
+        print("Le fichier sélectionné n'est pas une image valide.")
+        return None
+
+
+    try:
+        image = Image.open(chemin_image)
+        print("Image ouverte avec succès.")
+    except IOError:
+        print("Erreur lors de l'ouverture du fichier en tant qu'image.")
+        image = None
 
     return image
-
 
 def black_and_white_convert(img):
     img = img.convert('L')
