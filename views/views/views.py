@@ -104,6 +104,10 @@ def fusionning(request):
             'img_str': img_bw,
         }
         img_bw = img_bw.convert('RGB')
+        img1 = img1.convert('RGB')
+        img2 = img2.convert('RGB')
+        img1.save("./views/templates/static/pictures/generated/tmpBase1.jpg")
+        img2.save("./views/templates/static/pictures/generated/tmpBase2.jpg")
         img_bw.save("./views/templates/static/pictures/generated/tmp.jpg")
         page = render(request, "fusionning.html", context)
     else:

@@ -8,40 +8,63 @@
     <title>Fusionning Page</title>
     {% load static %}
     <style>
-        body,h1 {font-family: "Raleway", sans-serif}
-        body, html {height: 100%}
+        body, h1 {
+            font-family: "Raleway", sans-serif;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
         .bgimg {
             background-image: url("{% static 'pictures/forestbridge.jpg' %}");
             min-height: 100%;
             background-position: center;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
         }
         .center {
-          border: 3px solid white;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width: 50%;
+            border: 3px solid white;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .side-images {
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+        }
+        .side-images img {
+            border: 3px solid white;
+            width: 30%;
         }
     </style>
 </head>
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <img src="{% static 'pictures/python_plush.png' %}" alt="PythonPlush" width="15%" height="15%">
+<body>
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            <img src="{% static 'pictures/python_plush.png' %}" alt="PythonPlush" width="15%" height="15%">
+        </div>
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-center">PLOTIMAGE</h1>
+            <p class="w3-large w3-center">Fusion des images : </p>
+            {% if img_str %}
+                <img src='{% static "pictures/generated/tmp.jpg" %}' class="center w3-center" alt="Image final avec bordure noire">
+            {% else %}
+                <p>Aucune image disponible.</p>
+            {% endif %}
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+            Corentin RICHARD, Dorian HODIN
+        </div>
+        <div class="side-images">
+            <img src='{% static "pictures/generated/tmpBase1.jpg" %}' alt="Image 1 avec bordure noire">
+            <img src='{% static "pictures/generated/tmpBase2.jpg" %}' alt="Image 2 avec bordure noire">
+        </div>
     </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top">PLOTIMAGE</h1>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-      <p class="w3-large w3-center">Fusion des images :</p>
-        {% if img_str %}
-          <img src='{% static "pictures/generated/tmp.jpg" %}' class="center" alt="Image avec bordure noire">
-        {% else %}
-          <p>Aucune image disponible.</p>
-        {% endif %}
-    </div>
-    <div class="w3-display-bottomleft w3-padding-large">
-      Corentin RICHARD, Dorian HODIN
-    </div>
-  </div>
-
+</body>
 </html>
+
